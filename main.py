@@ -8,4 +8,4 @@ conexao = pymysql.connect(
 )
 
 cursor = conexao.cursor()
-cursor.execute("CREATE TABLE Alunos (nome VARCHAR(255) NOT NULL, id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, idade INT NOT NULL, telefone VARCHAR(20) NOT NULL, peso FLOAT NOT NULL, altura INT NOT NULL, objetivo VARCHAR(50) NOT NULL, data_matricula DATETIME NOT NULL, mensalidade_paga BOOLEAN DEFAULT TRUE)")
+cursor.execute("ALTER TABLE alunos MODIFY COLUMN altura FLOAT NOT NULL ")
