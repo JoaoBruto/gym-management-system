@@ -8,4 +8,4 @@ conexao = pymysql.connect(
 )
 
 cursor = conexao.cursor()
-cursor.execute("ALTER TABLE alunos MODIFY COLUMN altura FLOAT NOT NULL ")
+cursor.execute("ALTER TABLE alunos MODIFY COLUMN mensalidade_paga BOOLEAN DEFAULT FALSE")
