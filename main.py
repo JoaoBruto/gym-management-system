@@ -8,4 +8,4 @@ conexao = pymysql.connect(
 )
 
 cursor = conexao.cursor()
-cursor.execute("ALTER TABLE alunos MODIFY COLUMN telefone VARCHAR(200) ")
+cursor.execute("ALTER TABLE alunos MODIFY COLUMN data_matricula TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP")
