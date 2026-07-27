@@ -9,7 +9,17 @@ conexao = pymysql.connect(
 
 def cadastrar_aluno():
     nome = input("Digite seu nome: ")
-    idade = int(input("Digite sua idade: ")) #Converter numero para inteiro
+
+    while True:
+        try:
+            idade = int(input("Digite sua idade: ")) #Converter numero para inteiro
+            if idade < 10 or idade > 100:
+                print("Digite uma idade válida!")
+            else:
+                break
+        except ValueError:
+            print("Entrada inválida! Por favor, digite apenas números.")
+
     telefone = input("Digite seu telefone: ")
     peso = float(input("Digite seu peso (kg): "))
     altura = float(input("Digite sua altura (m): "))
