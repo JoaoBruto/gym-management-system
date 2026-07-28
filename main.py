@@ -21,10 +21,10 @@ def cadastrar_aluno():
             print("Entrada inválida! Por favor, digite apenas números.")
 
     telefone = input("Digite seu telefone: ")
-    
+
     while True:
         try:
-            peso = float(input("Digite seu peso (kg): "))
+            peso = float(input("Digite seu peso (kg): ")) 
             if peso < 10 or peso > 450:
                 print("Digite um peso válido!")
             else:
@@ -32,7 +32,16 @@ def cadastrar_aluno():
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
 
-    altura = float(input("Digite sua altura (m): "))
+    while True:
+        try:
+            altura = float(input("Digite sua altura (m): "))
+            if altura > 3:
+                print("Digite a altura em metros (Ex.: 1.75): ")
+            else:
+                break
+        except ValueError:
+            print("Entrada inválida! Por favor, digite apenas números.")
+            
     objetivo = input("Digite seu objetivo: ")
 
     
