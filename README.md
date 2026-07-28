@@ -12,7 +12,7 @@ O sistema é pensado como se fosse ser usado por uma academia real: cadastro de 
 
 ## 📋 Funcionalidades
 
-- [ ] Cadastro de alunos
+- [x] Cadastro de alunos
 - [ ] Listagem de alunos
 - [ ] Busca de alunos
 - [ ] Atualização de dados
