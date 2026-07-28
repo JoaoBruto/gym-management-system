@@ -9,10 +9,12 @@ conexao = pymysql.connect(
 
 def cadastrar_aluno():
     while True:
-        try:
-            nome = input("Digite seu nome: ")
-        except ValueError:
-            print("Entrada inválida! Por favor, digite apenas números.")
+        nome = input("Digite seu nome: ")
+        nome_sem_espaco = nome.replace(" ", "") 
+        if nome_sem_espaco.isalpha():
+            break
+        else:
+            print("Nome inválido, digite apenas letras.")
 
     while True:
         try:
