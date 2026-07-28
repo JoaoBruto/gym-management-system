@@ -39,7 +39,7 @@ O sistema é pensado como se fosse ser usado por uma academia real: cadastro de 
 ## 🧭 Roadmap do desenvolvimento
 
 - [x] Etapa 0 — Estrutura inicial do projeto
-- [ ] Etapa 1 — Criar banco e tabela `alunos`
+- [x] Etapa 1 — Criar banco e tabela `alunos`
 - [ ] Etapa 2 — Cadastrar aluno
 - [ ] Etapa 3 — Listar alunos
 - [ ] Etapa 4 — Buscar aluno
