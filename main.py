@@ -8,7 +8,11 @@ conexao = pymysql.connect(
 )
 
 def cadastrar_aluno():
-    nome = input("Digite seu nome: ")
+    while True:
+        try:
+            nome = input("Digite seu nome: ")
+        except ValueError:
+            print("Entrada inválida! Por favor, digite apenas números.")
 
     while True:
         try:
@@ -35,13 +39,13 @@ def cadastrar_aluno():
     while True:
         try:
             altura = float(input("Digite sua altura (m): "))
-            if altura > 3:
+            if altura < 1 or altura > 3:
                 print("Digite a altura em metros (Ex.: 1.75): ")
             else:
                 break
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
-            
+
     objetivo = input("Digite seu objetivo: ")
 
     
