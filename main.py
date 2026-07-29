@@ -29,10 +29,10 @@ def cadastrar_aluno():
 
     while True:
         telefone = input("Digite seu telefone: ")
-        if telefone.isdigit():
+        if telefone.isdigit() and len(telefone) == 11:
             break
         else:
-            print("Entrada inválida! Por favor, digite apenas números.")
+            print("Entrada inválida! Por favor, digite um telefone válido.")
 
     while True:
         try:
