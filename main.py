@@ -48,8 +48,13 @@ def cadastrar_aluno():
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
 
-    objetivo = input("Digite seu objetivo: ")
-
+    opcoes_validas = ["Hipertrofia", "Emagrecimento", "Manter massa muscular"]
+    while True:
+            objetivo = input("Digite seu objetivo: ")
+            if objetivo not in opcoes_validas:
+                print("Digite apenas as opções válidas (Hipertrofia, Emagrecimento, Massa Muscular)")
+            else:
+                break
     
     cursor = conexao.cursor()
     com_sql = "INSERT INTO alunos(nome, idade, telefone, peso, altura, objetivo, mensalidade_paga) VALUES (%s, %s, %s, %s, %s, %s, %s)"
