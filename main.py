@@ -26,7 +26,13 @@ def cadastrar_aluno():
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
 
-    telefone = input("Digite seu telefone: ")
+
+    while True:
+        telefone = input("Digite seu telefone: ")
+        if telefone.isdigit():
+            break
+        else:
+            print("Entrada inválida! Por favor, digite apenas números.")
 
     while True:
         try:
