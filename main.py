@@ -52,7 +52,7 @@ def cadastrar_aluno():
     while True:
             objetivo = input("Digite seu objetivo: ")
             if objetivo not in opcoes_validas:
-                print("Digite apenas as opções válidas (Hipertrofia, Emagrecimento, Massa Muscular)")
+                print("Digite apenas as opções válidas (Hipertrofia, Emagrecimento, Manter massa muscular)")
             else:
                 break
     
