@@ -98,5 +98,5 @@ def buscar_aluno():
     if aluno_encontrado is None:
         print("ERRO! Este usuário não está cadastrado")
     else:
-        print(request_id)
+        print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
 buscar_aluno()
