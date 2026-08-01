@@ -73,7 +73,7 @@ def cadastrar_aluno():
     conexao.commit()
 
     print(cursor.rowcount, "Inseridas com sucesso")
-cadastrar_aluno()
+#cadastrar_aluno()
 
 def listar_alunos():
     cursor = conexao.cursor()
@@ -81,15 +81,22 @@ def listar_alunos():
     resultado = cursor.fetchall()
     for alunos in resultado:
         print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
-listar_alunos()
+#listar_alunos()
 
 def buscar_aluno():
     while True:
         try:
             request_id = int(input("Digite o id do usuário: ")) #Converter numero para inteiro
-            if request_id not in alunos:
-                print("Digite um id válido")
-            else:
-                break
+            break
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
+
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM alunos WHERE id = %s", (request_id,))
+    aluno_encontrado = cursor.fetchone()
+
+    if aluno_encontrado is None:
+        print("ERRO! Este usuário não está cadastrado")
+    else:
+        print(request_id)
+buscar_aluno()
