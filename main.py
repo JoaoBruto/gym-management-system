@@ -80,6 +80,5 @@ def listar_alunos():
     cursor.execute("SELECT * FROM alunos")
     resultado = cursor.fetchall()
     for alunos in resultado:
-        print(f"ID: {alunos['id']}")
-        print(f"Nome: {alunos['nome']}")
+        print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
 listar_alunos()
