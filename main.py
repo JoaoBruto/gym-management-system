@@ -1,4 +1,5 @@
 import pymysql
+import pymysql.cursors
 
 conexao = pymysql.connect(
     host = 'localhost',
