@@ -10,7 +10,7 @@ conexao = pymysql.connect(
     cursorclass=pymysql.cursors.DictCursor 
 )
 
- def cadastrar_aluno():
+def cadastrar_aluno():
     while True:
         nome = input("Digite seu nome: ")
         nome_sem_espaco = nome.replace(" ", "") 
@@ -32,7 +32,7 @@ conexao = pymysql.connect(
 
     while True:
         telefone = input("Digite seu telefone: ")
-       if telefone.isdigit() and len(telefone) == 11:
+        if telefone.isdigit() and len(telefone) == 11:
             break
         else:
             print("Entrada inválida! Por favor, digite um telefone válido.")
@@ -59,7 +59,7 @@ conexao = pymysql.connect(
 
     opcoes_validas = ["Hipertrofia", "Emagrecimento", "Manter massa muscular"]
     while True:
-           objetivo = input("Digite seu objetivo: ")
+            objetivo = input("Digite seu objetivo: ")
             if objetivo not in opcoes_validas:
                 print("Digite apenas as opções válidas (Hipertrofia, Emagrecimento, Manter massa muscular)")
             else:
@@ -82,3 +82,14 @@ def listar_alunos():
     for alunos in resultado:
         print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
 listar_alunos()
+
+def buscar_aluno():
+    while True:
+        try:
+            request_id = int(input("Digite o id do usuário: ")) #Converter numero para inteiro
+            if request_id not in alunos:
+                print("Digite um id válido")
+            else:
+                break
+        except ValueError:
+            print("Entrada inválida! Por favor, digite apenas números.")
