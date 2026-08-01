@@ -5,7 +5,9 @@ conexao = pymysql.connect(
     host = 'localhost',
     user = 'root',
     passwd = '',
-    database = 'gym_management_db'
+    database = 'gym_management_db',
+    charset = 'utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor 
 )
 
 # def cadastrar_aluno():
