@@ -76,5 +76,6 @@ def listar_alunos():
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM alunos")
     resultado = cursor.fetchall()
-    print(resultado)
+    for alunos in resultado:
+        print(alunos)
 listar_alunos()
