@@ -107,4 +107,11 @@ def buscar_aluno():
             break
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas letras.")
+
+    cursor = conexao.cursor()
+    if request_status_mensalidade = 'mensalidade paga':
+        cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s 1", (request_status_mensalidade))
+    else:
+        cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s 0", (request_status_mensalidade))
+      
 buscar_aluno()
