@@ -100,18 +100,23 @@ def buscar_aluno():
     else:
         print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
 
-
+#BUSCAR POR MENSALIDADE
+    opcoes_mensalidade = ["mensalidade paga", "mensalidade pendente"]
     while True:
-        try:
             request_status_mensalidade = input("Digite 'mensalidade paga' ou 'mensalidade pendente' para ver os status de mensalidade")
-            break
-        except ValueError:
-            print("Entrada inválida! Por favor, digite apenas letras.")
-
+            if request_status_mensalidade not in opcoes_mensalidade:
+                print("Digite apenas as opções válidas (mensalidade paga ou mensalidade pendente)")
+            else:
+                break
+            
     cursor = conexao.cursor()
-    if request_status_mensalidade = 'mensalidade paga':
-        cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s 1", (request_status_mensalidade))
+    if valor == 'mensalidade paga':
+        status_numero = 1
     else:
-        cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s 0", (request_status_mensalidade))
-      
+        status_numero = 0
+
+    cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s", (status_numero,))
+    resultado_mensalidade = cursor.fetchall()
+    for alunos in resultado_mensalidade:
+        print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
 buscar_aluno()
