@@ -100,26 +100,27 @@ def buscar_aluno():
     else:
         print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
 
-#buscar_aluno()
+buscar_aluno()
 
 def buscar_por_mensalidade():
     opcoes_mensalidade = ["mensalidade paga", "mensalidade pendente"]
     while True:
-            request_status_mensalidade = input("Digite 'mensalidade paga' ou 'mensalidade pendente' para ver os status de mensalidade")
-            if request_status_mensalidade not in opcoes_mensalidade:
+            escolha_mensalidade = input("Digite 'mensalidade paga' ou 'mensalidade pendente' para ver os status de mensalidade: \n")
+            if escolha_mensalidade not in opcoes_mensalidade:
                 print("Digite apenas as opções válidas (mensalidade paga ou mensalidade pendente)")
             else:
                 break
             
     cursor = conexao.cursor()
-    if request_status_mensalidade == 'mensalidade paga':
-        status_numero = 1
+    if escolha_mensalidade == 'mensalidade paga':
+        mensalidade_numero = 1
     else:
-        status_numero = 0
+        mensalidade_numero = 0
 
-    cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s", (status_numero,))
+    cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s", (mensalidade_numero,))
     resultado_mensalidade = cursor.fetchall()
-    for alunos in resultado_mensalidade:
+    for aluno in resultado_mensalidade:
         print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
 buscar_por_mensalidade()
     
+def atualizar_aluno()
