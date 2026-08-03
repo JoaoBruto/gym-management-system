@@ -100,7 +100,7 @@ def buscar_aluno():
     else:
         print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
 
-buscar_aluno()
+#buscar_aluno()
 
 def buscar_por_mensalidade():
     opcoes_mensalidade = ["mensalidade paga", "mensalidade pendente"]
@@ -121,6 +121,26 @@ def buscar_por_mensalidade():
     resultado_mensalidade = cursor.fetchall()
     for aluno in resultado_mensalidade:
         print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
-buscar_por_mensalidade()
+#buscar_por_mensalidade()
     
-def atualizar_aluno()
+def atualizar_aluno():
+    while True:
+        try:
+            escolha_id = int(input("Digite o ID do aluno que você deseja atualizar: \n")) #Converter numero para inteiro
+            break
+        except ValueError:
+            print("Entrada inválida! Por favor, digite apenas números.")
+
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM alunos WHERE id = %s", (escolha_id,))
+    aluno_encontrado = cursor.fetchone()
+
+    if aluno_encontrado is None:
+        print("ERRO! Este usuário não está cadastrado.")
+    else:
+        escolha_atualizacao = input("O que deseja atualizar? 1-Nome 2-Idade 3-Telefone 4-Peso 5-Altura 6-Objetivo 7-Mensalidade: \n")
+    if escolha_atualizacao == 1:
+        novo_nome = input("Digite o novo nome de usuário: \n")
+        cursor.execute("UPDATE alunos SET nome = %s WHERE id = %s", (novo_nome), (escolha_id),)
+atualizar_aluno()
+        
