@@ -100,7 +100,9 @@ def buscar_aluno():
     else:
         print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
 
-#BUSCAR POR MENSALIDADE
+#buscar_aluno()
+
+def buscar_por_mensalidade():
     opcoes_mensalidade = ["mensalidade paga", "mensalidade pendente"]
     while True:
             request_status_mensalidade = input("Digite 'mensalidade paga' ou 'mensalidade pendente' para ver os status de mensalidade")
@@ -110,7 +112,7 @@ def buscar_aluno():
                 break
             
     cursor = conexao.cursor()
-    if valor == 'mensalidade paga':
+    if request_status_mensalidade == 'mensalidade paga':
         status_numero = 1
     else:
         status_numero = 0
@@ -119,4 +121,5 @@ def buscar_aluno():
     resultado_mensalidade = cursor.fetchall()
     for alunos in resultado_mensalidade:
         print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
-buscar_aluno()
+buscar_por_mensalidade()
+    
