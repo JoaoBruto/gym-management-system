@@ -13,8 +13,8 @@ O sistema é pensado como se fosse ser usado por uma academia real: cadastro de 
 ## 📋 Funcionalidades
 
 - [x] Cadastro de alunos
-- [ ] Listagem de alunos
-- [ ] Busca de alunos
+- [x] Listagem de alunos
+- [x] Busca de alunos
 - [ ] Atualização de dados
 - [ ] Exclusão de alunos
 - [ ] Controle de mensalidades (paga / pendente)
@@ -41,8 +41,8 @@ O sistema é pensado como se fosse ser usado por uma academia real: cadastro de 
 - [x] Etapa 0 — Estrutura inicial do projeto
 - [x] Etapa 1 — Criar banco e tabela `alunos`
 - [x] Etapa 2 — Cadastrar aluno
-- [ ] Etapa 3 — Listar alunos
-- [ ] Etapa 4 — Buscar aluno
+- [x] Etapa 3 — Listar alunos
+- [x] Etapa 4 — Buscar aluno
 - [ ] Etapa 5 — Atualizar aluno
 - [ ] Etapa 6 — Excluir aluno
 
