@@ -144,5 +144,19 @@ def atualizar_aluno():
             cursor.execute("UPDATE alunos SET nome = %s WHERE id = %s", (novo_nome, escolha_id),)
             conexao.commit()
             print("Nome atualizado com sucesso!")
+        elif escolha_atualizacao == "2":
+            while True:
+                try:
+                    nova_idade = input("Digite a nova idade do usuário: \n")
+                    if nova_idade < 10 or nova_idade > 100:
+                        print("Digite uma idade válida!")
+                    else:
+                        break
+                except ValueError:
+                    print("Entrada inválida! Por favor, digite apenas números.")
+
+            cursor.execute("UPDATE alunos SET idade = %s WHERE id = %s", (nova_idade, escolha_id),)
+            conexao.commit()
+            print("Idade atualizada com sucesso!")
 atualizar_aluno()
         
