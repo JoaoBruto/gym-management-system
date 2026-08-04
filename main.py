@@ -139,11 +139,19 @@ def atualizar_aluno():
         print("ERRO! Este usuário não está cadastrado.")
     else:
         escolha_atualizacao = input("O que deseja atualizar? 1-Nome 2-Idade 3-Telefone 4-Peso 5-Altura 6-Objetivo 7-Mensalidade: \n")
+
         if escolha_atualizacao == "1":
-            novo_nome = input("Digite o novo nome de usuário: \n")
+            while True:
+                novo_nome = input("Digite o novo nome de usuário: \n")
+                nome_sem_espaco = novo_nome.replace(" ", "") 
+                if nome_sem_espaco.isalpha():
+                    break
+                else:
+                    print("Nome inválido, digite apenas letras.")
             cursor.execute("UPDATE alunos SET nome = %s WHERE id = %s", (novo_nome, escolha_id),)
             conexao.commit()
             print("Nome atualizado com sucesso!")
+
         elif escolha_atualizacao == "2":
             while True:
                 try:
