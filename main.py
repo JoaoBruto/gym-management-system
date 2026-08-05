@@ -214,10 +214,13 @@ def atualizar_aluno():
         elif escolha_atualizacao == "6":
             opcoes_validas = ["Hipertrofia", "Emagrecimento", "Manter massa muscular"]
             while True:
-                novo_objetivo = input("Digite seu objetivo: ")
+                novo_objetivo = input("Digite o novo objetivo do usuário: \n")
                 if novo_objetivo not in opcoes_validas:
                     print("Digite apenas as opções válidas (Hipertrofia, Emagrecimento, Manter massa muscular)")
                 else:
                     break
+            conexao.execute("UPDATE alunos SET objetivo = %s WHERE id = %s", (novo_objetivo, escolha_id),)
+            conexao.commit()
+            print("Objetivo atualizado com sucesso!")
 atualizar_aluno()
         
