@@ -175,6 +175,8 @@ def atualizar_aluno():
                         break
                     else:
                         print("Entrada inválida! Por favor, digite um telefone válido.")
+                except ValueError:
+                    print("Entrada inválida! Por favor, digite apenas números.")
 
             cursor.execute("UPDATE alunos SET telefone = %s WHERE id = %s", (novo_telefone, escolha_id),)
             conexao.commit()
