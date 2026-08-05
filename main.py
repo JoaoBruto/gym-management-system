@@ -219,7 +219,7 @@ def atualizar_aluno():
                     print("Digite apenas as opções válidas (Hipertrofia, Emagrecimento, Manter massa muscular)")
                 else:
                     break
-            conexao.execute("UPDATE alunos SET objetivo = %s WHERE id = %s", (novo_objetivo, escolha_id),)
+            cursor.execute("UPDATE alunos SET objetivo = %s WHERE id = %s", (novo_objetivo, escolha_id),)
             conexao.commit()
             print("Objetivo atualizado com sucesso!")
 
@@ -231,5 +231,13 @@ def atualizar_aluno():
                     print("Digite apenas as opções válidas: Pendente ou Pago")
                 else:
                     break
+                if novo_status_mensalidade == "Pendente":
+                    conexao.execute("UPDATE alunos SET mensalidade_paga = 0 WHERE id = %s", ( escolha_id),)
+                    conexao.commit()
+                    print("Status de mensalidade atualizado com sucesso!")
+                else:
+                    cursor.execute("UPDATE alunos SET mensalidade_paga = 1 WHERE id = %s", ( escolha_id),)
+                    conexao.commit()
+                    print("Status de mensalidade atualizado com sucesso!")
 atualizar_aluno()
         
