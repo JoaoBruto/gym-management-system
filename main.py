@@ -231,13 +231,13 @@ def atualizar_aluno():
                     print("Digite apenas as opções válidas: Pendente ou Pago")
                 else:
                     break
-                if novo_status_mensalidade == "Pendente":
-                    conexao.execute("UPDATE alunos SET mensalidade_paga = 0 WHERE id = %s", ( escolha_id),)
-                    conexao.commit()
-                    print("Status de mensalidade atualizado com sucesso!")
-                else:
-                    cursor.execute("UPDATE alunos SET mensalidade_paga = 1 WHERE id = %s", ( escolha_id),)
-                    conexao.commit()
-                    print("Status de mensalidade atualizado com sucesso!")
+            if novo_status_mensalidade == "Pendente":
+                cursor.execute("UPDATE alunos SET mensalidade_paga = 0 WHERE id = %s", ( escolha_id),)
+                conexao.commit()
+                print("Status de mensalidade atualizado com sucesso!")
+            else:
+                cursor.execute("UPDATE alunos SET mensalidade_paga = 1 WHERE id = %s", ( escolha_id),)
+                conexao.commit()
+                print("Status de mensalidade atualizado com sucesso!")
 atualizar_aluno()
         
