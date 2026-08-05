@@ -200,7 +200,7 @@ def atualizar_aluno():
         elif escolha_atualizacao == "5":
             while True:
                 try:
-                    nova_altura = float(input("Digite a nova altura do usuário "))
+                    nova_altura = float(input("Digite a nova altura do usuário: \n"))
                     if nova_altura < 1.15 or nova_altura > 3:
                         print("Digite a altura em metros (Ex.: 1.75): ")
                     else:
