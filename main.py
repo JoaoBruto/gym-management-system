@@ -222,5 +222,14 @@ def atualizar_aluno():
             conexao.execute("UPDATE alunos SET objetivo = %s WHERE id = %s", (novo_objetivo, escolha_id),)
             conexao.commit()
             print("Objetivo atualizado com sucesso!")
+
+        elif escolha_atualizacao == "7":
+            opcoes_validas = ["Pendente", "Pago"]
+            while True:
+                novo_status_mensalidade = (input("Digite o novo status da mensalidade do usuário (Pendente e Pago): \n"))
+                if novo_status_mensalidade not in opcoes_validas:
+                    print("Digite apenas as opções válidas: Pendente ou Pago")
+                else:
+                    break
 atualizar_aluno()
         
