@@ -186,7 +186,7 @@ def atualizar_aluno():
         elif escolha_atualizacao == "4":
             while True:
                 try:
-                    novo_peso = float(input("Digite o novo peso do usuário: \n"))
+                    novo_peso = float(input("Digite o novo peso do usuário (kg): \n"))
                     if novo_peso < 10 or novo_peso > 450:
                         print("Digite um peso válido!")
                     else:
