@@ -194,6 +194,7 @@ def atualizar_aluno():
                 except ValueError:
                     print("Entrada invalida! Por favor, digite apenas números.")
             cursor.execute("UPDATE alunos SET peso = %s WHERE id = %s", (novo_peso, escolha_id),)
-            
+            conexao.commit()
+            print("Peso atualizado com sucesso!")
 atualizar_aluno()
         
