@@ -166,5 +166,21 @@ def atualizar_aluno():
             cursor.execute("UPDATE alunos SET idade = %s WHERE id = %s", (nova_idade, escolha_id),)
             conexao.commit()
             print("Idade atualizada com sucesso!")
+
+        elif escolha_atualizacao == "3":
+            while True:
+                try:
+                    novo_telefone = input("Digite o novo número de telefone do usuário: \n")
+                    if telefone.isdigit() and len(novo_telefone) == 11:
+                        break
+                    else:
+                        print("Entrada inválida! Por favor, digite um telefone válido.")
+                except ValueError:
+                    print("Entrada inválida! Por favor, digite apenas números.")
+
+            cursor.execute("UPDATE alunos SET telefone = %s WHERE id = %s", (novo_telefone, escolha_id),)
+            conexao.commit()
+            print("Telefone atualizado com sucesso!")
+
 atualizar_aluno()
         
