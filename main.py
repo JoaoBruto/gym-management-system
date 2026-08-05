@@ -171,7 +171,7 @@ def atualizar_aluno():
             while True:
                 try:
                     novo_telefone = input("Digite o novo número de telefone do usuário: \n")
-                    if telefone.isdigit() and len(novo_telefone) == 11:
+                    if novo_telefone.isdigit() and len(novo_telefone) == 11:
                         break
                     else:
                         print("Entrada inválida! Por favor, digite um telefone válido.")
