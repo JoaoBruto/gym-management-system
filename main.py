@@ -155,7 +155,7 @@ def atualizar_aluno():
         elif escolha_atualizacao == "2":
             while True:
                 try:
-                    nova_idade = input("Digite a nova idade do usuário: \n")
+                    nova_idade = int(input("Digite a nova idade do usuário: \n"))
                     if nova_idade < 10 or nova_idade > 100:
                         print("Digite uma idade válida!")
                     else:
