@@ -241,15 +241,15 @@ def atualizar_aluno():
                 print("Status de mensalidade atualizado com sucesso!")
 #atualizar_aluno()
         
-def exluir_aluno():
+def excluir_aluno():
     while True:
         try:
-            id_do_usuário: int(input("Digite o ID do usuário:"))
+            id_do_usuário = int(input("Digite o ID do usuário: "))
             break
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
     cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM alunos WHERE id = %s", (id_do_usuário,))
+    cursor.execute("SELECT * FROM alunos WHERE id = %s", (id_do_usuário,),)
     aluno_encontrado = cursor.fetchone()
 
     if aluno_encontrado is None:
@@ -258,4 +258,12 @@ def exluir_aluno():
     else:
         print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
 
-        
+        confirmacao_exclusao = input("Tem certeza que deseja excluir o usuário? (s/n)")
+        if confirmacao_exclusao == "s":
+            cursor = conexao.cursor()
+            cursor.execute("DELETE FROM alunos WHERE  id = %s", (id_do_usuário),)
+            conexao.commit()
+            print("Usuário excluido com sucesso!")
+        else:
+            print("Exclusão cancelada!")
+exluir_aluno()            
