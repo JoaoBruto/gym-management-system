@@ -239,5 +239,7 @@ def atualizar_aluno():
                 cursor.execute("UPDATE alunos SET mensalidade_paga = 1 WHERE id = %s", ( escolha_id),)
                 conexao.commit()
                 print("Status de mensalidade atualizado com sucesso!")
-atualizar_aluno()
+#atualizar_aluno()
         
+def exluir_aluno():
+    
