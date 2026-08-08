@@ -261,9 +261,11 @@ def excluir_aluno():
         confirmacao_exclusao = input("Tem certeza que deseja excluir o usuário? (s/n) \n")
         if confirmacao_exclusao == "s":
             cursor = conexao.cursor()
-            cursor.execute("DELETE FROM alunos WHERE  id = %s", (id_do_usuário),)
+            cursor.execute("DELETE FROM alunos WHERE  id = %s", (id_do_usuário, ),)
             conexao.commit()
             print("Usuário excluido com sucesso!")
-        else:
+        elif confirmacao_exclusao == "n":
             print("Exclusão cancelada!")
+        else:
+            print("Digite apenas as opções válidas (s ou n) \n")
 excluir_aluno()            
