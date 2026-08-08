@@ -258,7 +258,7 @@ def excluir_aluno():
     else:
         print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
 
-        confirmacao_exclusao = input("Tem certeza que deseja excluir o usuário? (s/n)")
+        confirmacao_exclusao = input("Tem certeza que deseja excluir o usuário? (s/n) \n")
         if confirmacao_exclusao == "s":
             cursor = conexao.cursor()
             cursor.execute("DELETE FROM alunos WHERE  id = %s", (id_do_usuário),)
