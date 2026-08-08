@@ -266,4 +266,4 @@ def excluir_aluno():
             print("Usuário excluido com sucesso!")
         else:
             print("Exclusão cancelada!")
-exluir_aluno()            
+excluir_aluno()            
