@@ -242,4 +242,20 @@ def atualizar_aluno():
 #atualizar_aluno()
         
 def exluir_aluno():
-    
+    while True:
+        try:
+            id_do_usuário: int(input("Digite o ID do usuário:"))
+            break
+        except ValueError:
+            print("Entrada inválida! Por favor, digite apenas números.")
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM alunos WHERE id = %s", (id_do_usuário,))
+    aluno_encontrado = cursor.fetchone()
+
+    if aluno_encontrado is None:
+        print("ERRO! Este usuário não está cadastrado.")
+
+    else:
+        print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
+
+        
