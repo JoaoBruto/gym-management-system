@@ -16,8 +16,8 @@ O sistema é pensado como se fosse ser usado por uma academia real: cadastro de 
 - [x] Listagem de alunos
 - [x] Busca de alunos
 - [x] Atualização de dados
-- [ ] Exclusão de alunos
-- [ ] Controle de mensalidades (paga / pendente)
+- [x] Exclusão de alunos
+- [x] Controle de mensalidades (paga / pendente)
 
 ## 🗃️ Estrutura do banco de dados
 
@@ -44,7 +44,7 @@ O sistema é pensado como se fosse ser usado por uma academia real: cadastro de 
 - [x] Etapa 3 — Listar alunos
 - [x] Etapa 4 — Buscar aluno
 - [x] Etapa 5 — Atualizar aluno
-- [ ] Etapa 6 — Excluir aluno
+- [x] Etapa 6 — Excluir aluno
 
 ## 📚 Aprendizados
 
