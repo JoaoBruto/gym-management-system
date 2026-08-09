@@ -8,6 +8,8 @@ conexao = pymysql.connect(
     database = 'gym_management_db',
     charset = 'utf8mb4',
     cursorclass=pymysql.cursors.DictCursor 
+    # DictCursor faz o cursor devolver os resultados como dicionário (nome_coluna: valor),
+    # em vez de tupla — facilita acessar os campos pelo nome (ex: aluno['nome'])
 )
 
 def cadastrar_aluno():
