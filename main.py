@@ -119,7 +119,7 @@ def buscar_por_mensalidade():
 
     cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s", (mensalidade_numero,))
     resultado_mensalidade = cursor.fetchall()
-    for aluno in resultado_mensalidade:
+    for alunos in resultado_mensalidade:
         print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
 #buscar_por_mensalidade()
     
