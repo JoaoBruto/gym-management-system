@@ -119,8 +119,8 @@ def buscar_por_mensalidade():
 
     cursor.execute("SELECT * FROM alunos WHERE mensalidade_paga = %s", (mensalidade_numero,))
     resultado_mensalidade = cursor.fetchall()
-    for alunos in resultado_mensalidade:
-        print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
+    for aluno in resultado_mensalidade:
+        print(f"ID: {aluno['id']} | Nome: {aluno['nome']} | Idade: {aluno['idade']} | Telefone: {aluno['telefone']} | Peso: {aluno['peso']} | Altura: {aluno['altura']} | Objetivo: {aluno['objetivo']} | Data da matricula: {aluno['data_matricula']} | Status da mensalidade: {aluno['mensalidade_paga']}")
 #buscar_por_mensalidade()
     
 def atualizar_aluno():
@@ -244,12 +244,12 @@ def atualizar_aluno():
 def excluir_aluno():
     while True:
         try:
-            id_do_usuário = int(input("Digite o ID do usuário: "))
+            id_do_usuario = int(input("Digite o ID do usuário: "))
             break
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
     cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM alunos WHERE id = %s", (id_do_usuário,),)
+    cursor.execute("SELECT * FROM alunos WHERE id = %s", (id_do_usuario,),)
     aluno_encontrado = cursor.fetchone()
 
     if aluno_encontrado is None:
@@ -261,7 +261,7 @@ def excluir_aluno():
         confirmacao_exclusao = input("Tem certeza que deseja excluir o usuário? (s/n) \n")
         if confirmacao_exclusao == "s":
             cursor = conexao.cursor()
-            cursor.execute("DELETE FROM alunos WHERE  id = %s", (id_do_usuário, ),)
+            cursor.execute("DELETE FROM alunos WHERE  id = %s", (id_do_usuario, ),)
             conexao.commit()
             print("Usuário excluido com sucesso!")
         elif confirmacao_exclusao == "n":
