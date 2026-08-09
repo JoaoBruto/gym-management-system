@@ -142,20 +142,20 @@ def atualizar_aluno():
      """Pede o ID de um aluno existente e permite atualizar um campo específico
     (nome, idade, telefone, peso, altura, objetivo ou status de mensalidade),
     validando o novo valor antes de salvar no banco."""
-while True:
+    while True:
         try:
             escolha_id = int(input("Digite o ID do aluno que você deseja atualizar: \n")) #Converter numero para inteiro
             break
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
 
-cursor = conexao.cursor()
-cursor.execute("SELECT * FROM alunos WHERE id = %s", (escolha_id,))
-aluno_encontrado = cursor.fetchone()
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM alunos WHERE id = %s", (escolha_id,))
+    aluno_encontrado = cursor.fetchone()
 
-if aluno_encontrado is None:
+    if aluno_encontrado is None:
         print("ERRO! Este usuário não está cadastrado.")
-else:
+    else:
         escolha_atualizacao = input("O que deseja atualizar? 1-Nome 2-Idade 3-Telefone 4-Peso 5-Altura 6-Objetivo 7-Mensalidade: \n")
 
         if escolha_atualizacao == "1":
