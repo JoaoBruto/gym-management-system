@@ -12,6 +12,7 @@ conexao = pymysql.connect(
     # em vez de tupla — facilita acessar os campos pelo nome (ex: aluno['nome'])
 )
 
+
 def cadastrar_aluno():
     """Cadastra um novo aluno no banco, pedindo e validando nome, idade, telefone,
     peso, altura e objetivo. Insere o registro com mensalidade já marcada como paga."""
@@ -27,6 +28,7 @@ def cadastrar_aluno():
         try:
             idade = int(input("Digite sua idade: ")) #Converter numero para inteiro
             if idade < 10 or idade > 100:
+                # academia não aceita menores de 10 anos
                 print("Digite uma idade válida!")
             else:
                 break
@@ -79,6 +81,7 @@ def cadastrar_aluno():
     print(cursor.rowcount, "Inseridas com sucesso")
 #cadastrar_aluno()
 
+
 def listar_alunos():
     """Busca todos os alunos cadastrados no banco e exibe cada um formatado,
     um por linha, com todos os campos."""
@@ -110,6 +113,7 @@ def buscar_aluno():
 
 #buscar_aluno()
 
+
 def buscar_por_mensalidade():
     """Lista todos os alunos filtrados pelo status de mensalidade
     (paga ou pendente), escolhido pelo usuário."""
@@ -132,25 +136,26 @@ def buscar_por_mensalidade():
     for aluno in resultado_mensalidade:
         print(f"ID: {aluno['id']} | Nome: {aluno['nome']} | Idade: {aluno['idade']} | Telefone: {aluno['telefone']} | Peso: {aluno['peso']} | Altura: {aluno['altura']} | Objetivo: {aluno['objetivo']} | Data da matricula: {aluno['data_matricula']} | Status da mensalidade: {aluno['mensalidade_paga']}")
 #buscar_por_mensalidade()
-    
+
+
 def atualizar_aluno():
      """Pede o ID de um aluno existente e permite atualizar um campo específico
     (nome, idade, telefone, peso, altura, objetivo ou status de mensalidade),
     validando o novo valor antes de salvar no banco."""
-    while True:
+while True:
         try:
             escolha_id = int(input("Digite o ID do aluno que você deseja atualizar: \n")) #Converter numero para inteiro
             break
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
 
-    cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM alunos WHERE id = %s", (escolha_id,))
-    aluno_encontrado = cursor.fetchone()
+cursor = conexao.cursor()
+cursor.execute("SELECT * FROM alunos WHERE id = %s", (escolha_id,))
+aluno_encontrado = cursor.fetchone()
 
-    if aluno_encontrado is None:
+if aluno_encontrado is None:
         print("ERRO! Este usuário não está cadastrado.")
-    else:
+else:
         escolha_atualizacao = input("O que deseja atualizar? 1-Nome 2-Idade 3-Telefone 4-Peso 5-Altura 6-Objetivo 7-Mensalidade: \n")
 
         if escolha_atualizacao == "1":
@@ -253,6 +258,7 @@ def atualizar_aluno():
                 conexao.commit()
                 print("Status de mensalidade atualizado com sucesso!")
 #atualizar_aluno()
+
         
 def excluir_aluno():
     """Pede o ID de um aluno, exibe os dados dele para confirmação e,
