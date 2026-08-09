@@ -8,9 +8,13 @@ conexao = pymysql.connect(
     database = 'gym_management_db',
     charset = 'utf8mb4',
     cursorclass=pymysql.cursors.DictCursor 
+    # DictCursor faz o cursor devolver os resultados como dicionário (nome_coluna: valor),
+    # em vez de tupla — facilita acessar os campos pelo nome (ex: aluno['nome'])
 )
 
 def cadastrar_aluno():
+    """Cadastra um novo aluno no banco, pedindo e validando nome, idade, telefone,
+    peso, altura e objetivo. Insere o registro com mensalidade já marcada como paga."""
     while True:
         nome = input("Digite seu nome: ")
         nome_sem_espaco = nome.replace(" ", "") 
@@ -76,6 +80,8 @@ def cadastrar_aluno():
 #cadastrar_aluno()
 
 def listar_alunos():
+    """Busca todos os alunos cadastrados no banco e exibe cada um formatado,
+    um por linha, com todos os campos."""
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM alunos")
     resultado = cursor.fetchall()
@@ -84,6 +90,8 @@ def listar_alunos():
 #listar_alunos()
 
 def buscar_aluno():
+    """Pede o ID de um aluno, busca no banco e exibe os dados dele.
+    Avisa o usuário caso o ID não corresponda a nenhum aluno cadastrado."""
     while True:
         try:
             request_id = int(input("Digite o id do usuário: ")) #Converter numero para inteiro
@@ -103,6 +111,8 @@ def buscar_aluno():
 #buscar_aluno()
 
 def buscar_por_mensalidade():
+    """Lista todos os alunos filtrados pelo status de mensalidade
+    (paga ou pendente), escolhido pelo usuário."""
     opcoes_mensalidade = ["mensalidade paga", "mensalidade pendente"]
     while True:
             escolha_mensalidade = input("Digite 'mensalidade paga' ou 'mensalidade pendente' para ver os status de mensalidade: \n")
@@ -124,6 +134,9 @@ def buscar_por_mensalidade():
 #buscar_por_mensalidade()
     
 def atualizar_aluno():
+    """Pede o ID de um aluno existente e permite atualizar um campo específico
+    (nome, idade, telefone, peso, altura, objetivo ou status de mensalidade),
+    validando o novo valor antes de salvar no banco."""
     while True:
         try:
             escolha_id = int(input("Digite o ID do aluno que você deseja atualizar: \n")) #Converter numero para inteiro
@@ -242,14 +255,16 @@ def atualizar_aluno():
 #atualizar_aluno()
         
 def excluir_aluno():
+    """Pede o ID de um aluno, exibe os dados dele para confirmação e,
+    caso o usuário confirme, remove o registro do banco permanentemente."""
     while True:
         try:
-            id_do_usuário = int(input("Digite o ID do usuário: "))
+            id_do_usuario = int(input("Digite o ID do usuário: "))
             break
         except ValueError:
             print("Entrada inválida! Por favor, digite apenas números.")
     cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM alunos WHERE id = %s", (id_do_usuário,),)
+    cursor.execute("SELECT * FROM alunos WHERE id = %s", (id_do_usuario,),)
     aluno_encontrado = cursor.fetchone()
 
     if aluno_encontrado is None:
@@ -261,7 +276,7 @@ def excluir_aluno():
         confirmacao_exclusao = input("Tem certeza que deseja excluir o usuário? (s/n) \n")
         if confirmacao_exclusao == "s":
             cursor = conexao.cursor()
-            cursor.execute("DELETE FROM alunos WHERE  id = %s", (id_do_usuário, ),)
+            cursor.execute("DELETE FROM alunos WHERE  id = %s", (id_do_usuario, ),)
             conexao.commit()
             print("Usuário excluido com sucesso!")
         elif confirmacao_exclusao == "n":
