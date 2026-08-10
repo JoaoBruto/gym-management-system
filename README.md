@@ -18,6 +18,7 @@ O sistema é pensado como se fosse ser usado por uma academia real: cadastro de 
 - [x] Atualização de dados
 - [x] Exclusão de alunos
 - [x] Controle de mensalidades (paga / pendente)
+- [x] Menu de interação
 
 ## 🗃️ Estrutura do banco de dados
 
