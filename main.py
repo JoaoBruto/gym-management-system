@@ -286,7 +286,7 @@ def excluir_aluno():
 
 def menu():
     while True:
-            opcoes = input("Selecione entre:\n 1- Cadastrar \n 2- Listar \n 3- Buscar por ID \n 4- Buscar por mensalidade \n 5- Atualizar \n 6- Excluir \n 7- Sair \n")
+            opcoes = input("Selecione entre: \n 1- Cadastrar \n 2- Listar \n 3- Buscar por ID \n 4- Buscar por mensalidade \n 5- Atualizar \n 6- Excluir \n 7- Sair \n")
             if opcoes == "1":
                 cadastrar_aluno()
             elif opcoes == "2":
