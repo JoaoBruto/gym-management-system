@@ -77,7 +77,7 @@ def cadastrar_aluno():
     conexao.commit()
 
     print(cursor.rowcount, "Inseridas com sucesso")
-#cadastrar_aluno()
+
 
 def listar_alunos():
     """Busca todos os alunos cadastrados no banco e exibe cada um formatado,
@@ -87,7 +87,7 @@ def listar_alunos():
     resultado = cursor.fetchall()
     for alunos in resultado:
         print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
-#listar_alunos()
+
 
 def buscar_aluno():
     """Pede o ID de um aluno, busca no banco e exibe os dados dele.
@@ -108,7 +108,6 @@ def buscar_aluno():
     else:
         print(f"ID: {aluno_encontrado['id']} | Nome: {aluno_encontrado['nome']} | Idade: {aluno_encontrado['idade']} | Telefone: {aluno_encontrado['telefone']} | Peso: {aluno_encontrado['peso']} | Altura: {aluno_encontrado['altura']} | Objetivo: {aluno_encontrado['objetivo']} | Data da matricula: {aluno_encontrado['data_matricula']} | Status da mensalidade: {aluno_encontrado['mensalidade_paga']}")
 
-#buscar_aluno()
 
 def buscar_por_mensalidade():
     """Lista todos os alunos filtrados pelo status de mensalidade
@@ -131,7 +130,7 @@ def buscar_por_mensalidade():
     resultado_mensalidade = cursor.fetchall()
     for alunos in resultado_mensalidade:
         print(f"ID: {alunos['id']} | Nome: {alunos['nome']} | Idade: {alunos['idade']} | Telefone: {alunos['telefone']} | Peso: {alunos['peso']} | Altura: {alunos['altura']} | Objetivo: {alunos['objetivo']} | Data da matricula: {alunos['data_matricula']} | Status da mensalidade: {alunos['mensalidade_paga']}")
-#buscar_por_mensalidade()
+
     
 def atualizar_aluno():
     """Pede o ID de um aluno existente e permite atualizar um campo específico
@@ -252,7 +251,7 @@ def atualizar_aluno():
                 cursor.execute("UPDATE alunos SET mensalidade_paga = 1 WHERE id = %s", ( escolha_id),)
                 conexao.commit()
                 print("Status de mensalidade atualizado com sucesso!")
-#atualizar_aluno()
+
         
 def excluir_aluno():
     """Pede o ID de um aluno, exibe os dados dele para confirmação e,
@@ -283,11 +282,11 @@ def excluir_aluno():
             print("Exclusão cancelada!")
         else:
             print("Digite apenas as opções válidas (s ou n) \n")
-#excluir_aluno()    
+ 
 
 def menu():
     while True:
-            opcoes = input("Selecione entre: 1- Cadastrar \n 2- Listar \n 3- Buscar por ID \n 4- Buscar por mensalidade \n 5- Atualizar \n 6- Excluir \n 7- Sair \n")
+            opcoes = input("Selecione entre:\n 1- Cadastrar \n 2- Listar \n 3- Buscar por ID \n 4- Buscar por mensalidade \n 5- Atualizar \n 6- Excluir \n 7- Sair \n")
             if opcoes == "1":
                 cadastrar_aluno()
             elif opcoes == "2":
@@ -305,3 +304,4 @@ def menu():
                 break
             else:
                 print("Essa opção não existe")
+menu()
