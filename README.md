@@ -55,6 +55,41 @@ Projeto desenvolvido com foco em consolidar:
 - Modelagem de banco de dados
 - Uso de Git/GitHub com commits organizados
 
+## 🚀 Melhorias futuras
+
+### Segurança e configuração
+- [ ] Mover credenciais do banco para variável de ambiente (`python-dotenv`)
+
+### Organização de código
+- [ ] Centralizar listas de opções (objetivo, mensalidade) em um único lugar
+- [ ] Extrair validações repetidas (idade, peso, altura, telefone) em funções reutilizáveis
+- [ ] Separar o projeto em múltiplos arquivos/módulos (conexão, CRUD, menu)
+
+### Robustez
+- [ ] Tratar erro de conexão com o banco (try/except ao redor do connect)
+- [ ] Adicionar constraint UNIQUE para telefone
+- [ ] Pedir confirmação antes de atualizar um dado (não só ao excluir)
+
+### Experiência de uso (UX)
+- [ ] Limpar terminal entre ações do menu
+- [ ] Formatar listagem como tabela (biblioteca `tabulate`)
+- [ ] Mensagens de boas-vindas e despedida no menu
+
+### Novas funcionalidades
+- [ ] Busca de aluno por nome parcial (`LIKE`)
+- [ ] Contagem total de alunos cadastrados
+- [ ] Exportar lista de alunos para `.csv`
+
+### Qualidade
+- [ ] Testes automatizados com `pytest`
+
+### Evolução com novas tecnologias (conforme progresso nos estudos)
+- [ ] **Git/GitHub avançado:** reorganizar histórico com branches e Issues
+- [ ] **Linux:** script de shell para automatizar setup do banco
+- [ ] **Redis:** cache para buscas frequentes (ex: listagem)
+- [ ] **Node.js:** recriar a camada de dados como API REST
+- [ ] **Prisma:** substituir SQL puro por ORM (na versão Node)
+- [ ] **Java:** reimplementar o sistema como comparação de stacks
 ---
 
 *Projeto concluido!*
