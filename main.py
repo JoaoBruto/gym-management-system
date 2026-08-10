@@ -292,3 +292,20 @@ def menu():
             opcoes = input("Selecione entre: 1- Cadastrar \n 2- Listar \n 3- Buscar por ID \n 4- Buscar por mensalidade \n 5- Atualizar \n 6- Excluir \n 7- Sair \n")
         except ValueError:
             print("Digite apenas o número da sua opção!")
+        if opcoes == 1:
+            cadastrar_aluno()
+        elif opcoes == 2:
+            listar_alunos()
+        elif opcoes == 3:
+            buscar_aluno()
+        elif opcoes == 4:
+            buscar_por_mensalidade()
+        elif opcoes == 5:
+            atualizar_aluno()
+        elif opcoes == 6:
+            excluir_aluno()
+        elif opcoes == 7:
+            print("Ação finalizada com sucesso!")
+            break
+        else:
+            print("Essa opção não existe")
