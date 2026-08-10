@@ -56,4 +56,4 @@ Projeto desenvolvido com foco em consolidar:
 
 ---
 
-*Projeto em desenvolvimento contínuo!*
+*Projeto concluido!*
