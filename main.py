@@ -289,6 +289,6 @@ def menu():
     opcoes_validas = ["1", "2", "3", "4", "5", "6", "7"]
     while True:
         try:
-            opcoes = int(input("Selecione entre: 1- Cadastrar \n 2- Listar \n 3- Buscar por ID \n 4- Buscar por mensalidade \n 5- Atualizar \n 6- Excluir \n 7- Sair \n"))
+            opcoes = input("Selecione entre: 1- Cadastrar \n 2- Listar \n 3- Buscar por ID \n 4- Buscar por mensalidade \n 5- Atualizar \n 6- Excluir \n 7- Sair \n")
         except ValueError:
             print("Digite apenas o número da sua opção!")
