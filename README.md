@@ -55,7 +55,7 @@ Projeto desenvolvido com foco em consolidar:
 - Modelagem de banco de dados
 - Uso de Git/GitHub com commits organizados
 
-## 🚀 Melhorias futuras
+## 🚀 Melhorias futuras (V2)
 
 ### Segurança e configuração
 - [ ] Mover credenciais do banco para variável de ambiente (`python-dotenv`)
